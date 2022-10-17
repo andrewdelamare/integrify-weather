@@ -5,8 +5,8 @@ mapboxgl.accessToken = process.env.REACT_APP_MAP;
 export const Map = ({ cityData }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
+  const [lng, setLng] = useState(24.939);
+  const [lat, setLat] = useState(60.17);
   const [zoom, setZoom] = useState(11);
 
   // initialize map
@@ -30,11 +30,15 @@ export const Map = ({ cityData }) => {
     });
   });
 
-  // when city data changes, centerpoint of map is updated and user flys to location 
+  // when city data changes, centerpoint of map is updated and user flys to location
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
     if (cityData) {
-      map.current.flyTo({center: [cityData.GeoPosition.Longitude, cityData.GeoPosition.Latitude], essential: true, duration: 10000});
+      map.current.flyTo({
+        center: [cityData.GeoPosition.Longitude, cityData.GeoPosition.Latitude],
+        essential: true,
+        duration: 10000,
+      });
     }
   }, [cityData]);
 

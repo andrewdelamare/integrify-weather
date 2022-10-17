@@ -1,12 +1,12 @@
 import axios from "axios";
-const baseUrl = process.env.REACT_APP_BASE_URL
-console.log(baseUrl)
+const baseUrl = "/.netlify/functions";
 export const citySearch = async (city) => {
   try {
-    const response = await axios.post(`${baseUrl}/searchForCity.`, { city });
-    console.log(response)
-    return response.data[0];
+    const response = await axios.get(`${baseUrl}/searchForCity?city=${city}`);
+    return response.data;
   } catch (error) {
+    const parsed = error.response;
+    console.log({ statusCode: parsed.status, body: parsed.data.Message });
     return null;
   }
 };

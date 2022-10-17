@@ -1,11 +1,16 @@
 import { Search } from "./Search";
-export const Sidebar = ({ cityData, setCityData, searchField, setSearchField }) => {
+export const Sidebar = ({
+  cityData,
+  setCityData,
+  searchField,
+  setSearchField,
+}) => {
   return (
     <div className="sidebar">
       Search For Your City's Weather Forcast
       <br />
       --------------------------------------
-      <Search 
+      <Search
         cityData={cityData}
         searchField={searchField}
         setSearchField={setSearchField}

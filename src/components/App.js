@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Map } from "./Map";
 import { Sidebar } from "./Sidebar";
-import { helsinki } from "../services/misc"
+import { helsinki } from "../services/misc";
 
 const App = () => {
   const [cityData, setCityData] = useState(helsinki);
