@@ -15,6 +15,7 @@ const App = () => {
         searchField={searchField}
         setSearchField={setSearchField}
         setCityData={setCityData}
+        setWeather={setWeather}
       />
       <Map cityData={cityData} />
     </div>

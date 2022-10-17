@@ -4,6 +4,7 @@ export const Sidebar = ({
   setCityData,
   searchField,
   setSearchField,
+  setWeather,
 }) => {
   return (
     <div className="sidebar">
@@ -15,6 +16,7 @@ export const Sidebar = ({
         searchField={searchField}
         setSearchField={setSearchField}
         setCityData={setCityData}
+        setWeather={setWeather}
       />
     </div>
   );

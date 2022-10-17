@@ -10,3 +10,16 @@ export const citySearch = async (city) => {
     return null;
   }
 };
+
+export const weatherSearch = async (locationKey) => {
+  try {
+    const response = await axios.get(
+      `${baseUrl}/getWeather?locationKey=${locationKey}`
+    );
+    return response.data;
+  } catch (error) {
+    const parsed = error.response;
+    console.log({ statusCode: parsed.status, body: parsed.data.Message });
+    return null;
+  }
+};
