@@ -1,18 +1,24 @@
 import { useState } from "react";
-import Map from "./Map";
-import Sidebar from "./Sidebar";
+import { Map } from "./Map";
+import { Sidebar } from "./Sidebar";
+import { helsinki } from "../services/misc"
 
-function App() {
-const [cityData, setCityData] = useState({lng:0, lat:0});
-const [searchField, setSearchField] = useState();
-const [weather, setWeather] = useState();
+const App = () => {
+  const [cityData, setCityData] = useState(helsinki);
+  const [searchField, setSearchField] = useState("");
+  const [weather, setWeather] = useState();
 
   return (
     <div className="App">
-      <Sidebar cityData={cityData} searchField={searchField} setSearchField={setSearchField} />
-      <Map cityData={cityData}  />
+      <Sidebar
+        cityData={cityData}
+        searchField={searchField}
+        setSearchField={setSearchField}
+        setCityData={setCityData}
+      />
+      <Map cityData={cityData} />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,5 @@
 .map-container {
-  height: 700px;
+  height: 100vh;
 }
 
 .sidebar {
@@ -13,4 +13,16 @@
   right: 0;
   margin: 12px;
   border-radius: 4px;
+  height: auto;
+}
+
+#searchInput {
+  border-radius: 4px;
+  font-family: monospace;
+  background-color: #fff;
+}
+
+body {
+  margin: 0px;
+  height: 100vh;
 }

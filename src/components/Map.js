@@ -2,12 +2,12 @@ import { useRef, useEffect, useState } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = process.env.REACT_APP_MAP;
 
-export default function Map({ cityData }) {
+export const Map = ({ cityData }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-70.9);
   const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(9);
+  const [zoom, setZoom] = useState(11);
 
   // initialize map
   useEffect(() => {
@@ -30,15 +30,13 @@ export default function Map({ cityData }) {
     });
   });
 
-  // when city data changes, centerpoint of map is updated
-  useEffect( () => {
+  // when city data changes, centerpoint of map is updated and user flys to location 
+  useEffect(() => {
     if (!map.current) return; // wait for map to initialize
-    if(cityData){
-      map.current.setCenter([cityData.lng, cityData.lat])
+    if (cityData) {
+      map.current.flyTo({center: [cityData.GeoPosition.Longitude, cityData.GeoPosition.Latitude], essential: true, duration: 10000});
     }
-  }, [cityData])
+  }, [cityData]);
 
-  return (
-      <div ref={mapContainer} className="map-container" />
-  );
-}
+  return <div ref={mapContainer} className="map-container" />;
+};
