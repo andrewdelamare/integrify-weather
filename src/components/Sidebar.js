@@ -1,13 +1,25 @@
+import { useEffect, useState } from "react";
 import { Search } from "./Search";
 export const Sidebar = ({
   cityData,
   setCityData,
   searchField,
   setSearchField,
+  weather,
   setWeather,
 }) => {
+  const [sidebarClassnames, setSC] = useState("sidebar");
+
+  useEffect(() => {
+    if (weather) {
+      setSC("sidebar expanded");
+    } else {
+      setSC("sidebar");
+    }
+  }, [weather]);
+
   return (
-    <div className="sidebar">
+    <div className={sidebarClassnames}>
       Search For Your City's Weather Forcast
       <br />
       --------------------------------------

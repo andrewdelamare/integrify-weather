@@ -18,6 +18,7 @@ export const Map = ({ cityData }) => {
       center: [lng, lat],
       zoom: zoom,
     });
+    map.current.setPadding({ right: 297 });
   });
 
   // update centerpoint of map on movement
