@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Search } from "./Search";
+import { Card } from "./Card";
 export const Sidebar = ({
   cityData,
   setCityData,
@@ -30,6 +31,7 @@ export const Sidebar = ({
         setCityData={setCityData}
         setWeather={setWeather}
       />
+      <Card weather={weather} />
     </div>
   );
 };

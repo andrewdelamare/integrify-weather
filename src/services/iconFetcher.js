@@ -1,0 +1,53 @@
+// webpack require in order to import all svgs from icons folder
+const reqSvgs = require.context("../icons", true, /\.svg$/);
+export const iconFetcher = (id) => {
+  const iconArray = [
+    "weather-icons-01-svgrepo-com.svg",
+    "weather-icons-01-svgrepo-com.svg",
+    "weather-icons-01-svgrepo-com.svg",
+    "weather-icons-17-svgrepo-com.svg",
+    "weather-icons-17-svgrepo-com.svg",
+    "weather-icons-17-svgrepo-com.svg",
+    "weather-icons-16-svgrepo-com.svg",
+    "weather-icons-16-svgrepo-com.svg",
+    "weather-icons-42-svgrepo-com.svg",
+    "weather-icons-42-svgrepo-com.svg",
+    "weather-icons-42-svgrepo-com.svg",
+    "weather-icons-45-svgrepo-com.svg",
+    "weather-icons-46-svgrepo-com.svg",
+    "weather-icons-46-svgrepo-com.svg",
+    "weather-icons-28-svgrepo-com.svg",
+    "weather-icons-29-svgrepo-com.svg",
+    "weather-icons-29-svgrepo-com.svg",
+    "weather-icons-22-svgrepo-com.svg",
+    "weather-icons-31-svgrepo-com.svg",
+    "weather-icons-32-svgrepo-com.svg",
+    "weather-icons-32-svgrepo-com.svg",
+    "weather-icons-31-svgrepo-com.svg",
+    "weather-icons-32-svgrepo-com.svg",
+    "weather-icons-68-svgrepo-com.svg",
+    "weather-icons-68-svgrepo-com.svg",
+    "weather-icons-36-svgrepo-com.svg",
+    "weather-icons-31-svgrepo-com.svg",
+    "weather-icons-31-svgrepo-com.svg",
+    "weather-icons-31-svgrepo-com.svg",
+    "weather-icons-65-svgrepo-com.svg",
+    "weather-icons-63-svgrepo-com.svg",
+    "weather-icons-66-svgrepo-com.svg",
+    "weather-icons-05-svgrepo-com.svg",
+    "weather-icons-05-svgrepo-com.svg",
+    "weather-icons-18-svgrepo-com.svg",
+    "weather-icons-18-svgrepo-com.svg",
+    "weather-icons-18-svgrepo-com.svg",
+    "weather-icons-18-svgrepo-com.svg",
+    "weather-icons-21-svgrepo-com.svg",
+    "weather-icons-21-svgrepo-com.svg",
+    "weather-icons-30-svgrepo-com.svg",
+    "weather-icons-30-svgrepo-com.svg",
+    "weather-icons-33-svgrepo-com.svg",
+    "weather-icons-33-svgrepo-com.svg",
+  ];
+  // select svg using filepath/name from array (based on index of element)
+  const icon = reqSvgs(`./${iconArray[id - 1]}`);
+  return icon;
+};
