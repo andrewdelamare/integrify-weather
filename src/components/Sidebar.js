@@ -8,6 +8,8 @@ export const Sidebar = ({
   setSearchField,
   weather,
   setWeather,
+  error,
+  setError,
 }) => {
   const [sidebarClassnames, setSC] = useState("sidebar");
 
@@ -30,8 +32,14 @@ export const Sidebar = ({
         setSearchField={setSearchField}
         setCityData={setCityData}
         setWeather={setWeather}
+        setError={setError}
       />
-      <Card weather={weather} />
+      {error ? <div className="error">{error}</div> : null}
+      --------------------------------------
+      <h2>{cityData ? cityData.LocalizedName : null}</h2>
+      {cityData && weather ? (
+        <Card weather={weather} cityData={cityData} />
+      ) : null}
     </div>
   );
 };

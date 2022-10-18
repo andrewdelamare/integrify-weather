@@ -4,9 +4,10 @@ import { Sidebar } from "./Sidebar";
 import { helsinki, helWeather } from "../services/misc";
 
 const App = () => {
-  const [cityData, setCityData] = useState(helsinki);
+  const [cityData, setCityData] = useState(null);
   const [searchField, setSearchField] = useState("");
-  const [weather, setWeather] = useState(helWeather);
+  const [weather, setWeather] = useState(null);
+  const [error, setError] = useState(null);
 
   return (
     <div className="App">
@@ -17,6 +18,8 @@ const App = () => {
         setCityData={setCityData}
         weather={weather}
         setWeather={setWeather}
+        error={error}
+        setError={setError}
       />
       <Map cityData={cityData} />
     </div>

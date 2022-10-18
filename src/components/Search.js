@@ -5,6 +5,7 @@ export const Search = ({
   setSearchField,
   setCityData,
   setWeather,
+  setError,
 }) => {
   const searchIt = async () => {
     const result = await citySearch(searchField);
@@ -15,7 +16,10 @@ export const Search = ({
         setWeather(weatherResult);
       }
     } else {
-      console.log("No City Found");
+      setError("No city found, please modify your search and try again");
+      setTimeout(() => {
+        setError(null);
+      }, 10000);
     }
   };
 
@@ -36,6 +40,14 @@ export const Search = ({
       >
         <input type="search" placeholder="Search" id="searchInput"></input>
       </form>
+      <button
+        className="search-button"
+        onClick={() => {
+          searchIt();
+        }}
+      >
+        Search
+      </button>
     </div>
   );
 };
