@@ -23,3 +23,15 @@ export const weatherSearch = async (locationKey) => {
     return null;
   }
 };
+
+export const locationSearch = async () => {
+  try {
+    const ip = await axios.get("https://api64.ipify.org?format=json");
+    const response = await axios.get(`${baseUrl}/getLocation?ip=${ip.data.ip}`);
+    return response.data;
+  } catch (error) {
+    const parsed = error.response;
+    console.log({ statusCode: parsed.status, body: parsed.data.Message });
+    return null;
+  }
+};

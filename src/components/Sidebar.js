@@ -23,20 +23,24 @@ export const Sidebar = ({
 
   return (
     <div className={sidebarClassnames}>
-      Search For Your City's Weather Forcast
+      Search For A City's Weather Forcast
       <br />
-      --------------------------------------
-      <Search
-        cityData={cityData}
-        searchField={searchField}
-        setSearchField={setSearchField}
-        setCityData={setCityData}
-        setWeather={setWeather}
-        setError={setError}
-      />
-      {error ? <div className="error">{error}</div> : null}
-      --------------------------------------
-      <h2>{cityData ? cityData.LocalizedName : null}</h2>
+      <div className="search-container">
+        <Search
+          cityData={cityData}
+          searchField={searchField}
+          setSearchField={setSearchField}
+          setCityData={setCityData}
+          setWeather={setWeather}
+          setError={setError}
+        />
+        {error ? <div className="error">{error}</div> : null}
+      </div>
+      <h2>
+        {cityData
+          ? `${cityData.LocalizedName} ${cityData.Country.LocalizedName}`
+          : null}
+      </h2>
       {cityData && weather ? (
         <Card weather={weather} cityData={cityData} />
       ) : null}

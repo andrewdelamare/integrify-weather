@@ -22,12 +22,18 @@ html {
 
 .weather-icon {
   filter: invert();
-  opacity: 0.7;
+  opacity: 0.99;
   padding: 0px;
 }
 
 .map-container {
   height: 100vh;
+}
+
+.search-container {
+  margin-top: 10px;
+  align-items: center;
+  justify-items: center;
 }
 
 .searchbar {
@@ -39,10 +45,11 @@ html {
   margin: 0px 8px;
   font-family: monospace;
   font-size: small;
+  width: full;
 }
 
 .sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
+  background-color: rgba(37, 73, 109, 0.9);
   color: #fff;
   padding-top: 6px;
   padding-right: 6px;
