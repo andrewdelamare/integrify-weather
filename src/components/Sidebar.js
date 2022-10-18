@@ -13,6 +13,7 @@ export const Sidebar = ({
 }) => {
   const [sidebarClassnames, setSC] = useState("sidebar");
 
+  // adjusts styles based on weather data avalibility
   useEffect(() => {
     if (weather) {
       setSC("sidebar expanded");
@@ -24,7 +25,6 @@ export const Sidebar = ({
   return (
     <div className={sidebarClassnames}>
       Search For A City's Weather Forcast
-      <br />
       <div className="search-container">
         <Search
           cityData={cityData}

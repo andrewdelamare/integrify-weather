@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Map } from "./Map";
 import { Sidebar } from "./Sidebar";
-import { helsinki, helWeather } from "../services/misc";
 import { locationSearch, weatherSearch } from "../services/weatherService";
 
 const App = () => {
@@ -9,6 +8,7 @@ const App = () => {
   const [searchField, setSearchField] = useState("");
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
+  const [tried, setTried] = useState(null);
 
   const geoLocateClient = async () => {
     const loc = await locationSearch();
@@ -16,7 +16,9 @@ const App = () => {
     setCityData(loc);
     setWeather(weatherData);
   };
-  if (!cityData) {
+  // geolocate only once on initial load & prevent retry on rerenders
+  if (!cityData && !tried) {
+    setTried(true);
     geoLocateClient();
   }
 

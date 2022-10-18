@@ -47,7 +47,7 @@ export const iconFetcher = (id) => {
     "weather-icons-33-svgrepo-com.svg",
     "weather-icons-33-svgrepo-com.svg",
   ];
-  // select svg using filepath/name from array (based on index of element)
+  // select svg using filepath/name from array (based on index of element, corresponding to api icon key numbers)
   const icon = reqSvgs(`./${iconArray[id - 1]}`);
   return icon;
 };
