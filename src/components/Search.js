@@ -14,6 +14,8 @@ export const Search = ({
       const weatherResult = await weatherSearch(result.Key);
       if (weatherResult) {
         setWeather(weatherResult);
+        // reset search field on successful search
+        setSearchField("");
       }
     } else {
       setError("No city found, please modify your search and try again");
