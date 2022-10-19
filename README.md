@@ -5,7 +5,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/76ffdd5a-d41a-4aa7-8fb2-36157916ba14/deploy-status)](https://app.netlify.com/sites/clinquant-crumble-c3992b/deploys)
 
-## LIVE SITE: [VIEW](https://634ef09c47ba24175db80eae--clinquant-crumble-c3992b.netlify.app)
+## LIVE SITE: [VIEW](https://clinquant-crumble-c3992b.netlify.app)
 
 ---
 
