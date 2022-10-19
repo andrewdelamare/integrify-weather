@@ -7,7 +7,7 @@ export const Search = ({
   setWeather,
   setError,
 }) => {
-  const searchIt = async () => {
+  const searchIt = async (e) => {
     const result = await citySearch(searchField);
     if (result) {
       setCityData(result);
@@ -16,6 +16,7 @@ export const Search = ({
         setWeather(weatherResult);
         // reset search field on successful search
         setSearchField("");
+        e.target.reset();
       }
     } else {
       setError("No city found, please modify your search and try again");
@@ -37,15 +38,15 @@ export const Search = ({
         onChange={(e) => updateSearchField(e)}
         onSubmit={(e) => {
           e.preventDefault();
-          searchIt();
+          searchIt(e);
         }}
       >
         <input type="search" placeholder="Search" id="searchInput"></input>
       </form>
       <button
         className="search-button"
-        onClick={() => {
-          searchIt();
+        onClick={(e) => {
+          searchIt(e);
         }}
       >
         Search

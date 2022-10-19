@@ -12,9 +12,11 @@ const App = () => {
 
   const geoLocateClient = async () => {
     const loc = await locationSearch();
-    const weatherData = await weatherSearch(loc.Key);
-    setCityData(loc);
-    setWeather(weatherData);
+    if (loc) {
+      const weatherData = await weatherSearch(loc.Key);
+      setCityData(loc);
+      setWeather(weatherData);
+    }
   };
   // geolocate only once on initial load & prevent retry on rerenders
   if (!cityData && !tried) {
