@@ -4,7 +4,7 @@ const citySearch =
 exports.handler = async (event) => {
   try {
     const response = await axios.get(
-      `${citySearch}?apikey=${process.env.REACT_APP_WEATHER}&q=${event.queryStringParameters.city}`
+      `${citySearch}?apikey=${process.env.WEATHER}&q=${event.queryStringParameters.city}`
     );
     return {
       statusCode: 200,
